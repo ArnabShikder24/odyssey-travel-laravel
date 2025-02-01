@@ -7,10 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
-    // Create user
     public function createUser(Request $request)
     {
-        // Validate input
         $request->validate([
             'email' => 'required|email',
             'username' => 'required|string|max:255',
@@ -20,7 +18,6 @@ class AuthController extends Controller
         $email = $request->input('email');
 
         try {
-            // Insert into auth table without timestamps
             DB::table('auth')->insert([
                 'username' => $username,
                 'email' => $email,
@@ -37,7 +34,6 @@ class AuthController extends Controller
         }
     }
 
-    // Get all users
     public function getAllUsers()
     {
         try {
