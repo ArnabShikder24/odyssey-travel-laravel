@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('details');
             $table->decimal('price', 10, 2);
             $table->string('img_url')->nullable();
-            $table->timestamps(); // Optional, if you want to track creation and update times
+            $table->timestamps(); 
         });
     }
 

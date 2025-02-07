@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hotels', function (Blueprint $table) {
-            $table->id('hotel_id');  // Set hotel_id as the primary key
+            $table->id('hotel_id');
             $table->string('hotel_name');
             $table->string('location');
             $table->decimal('price_per_night', 10, 2);
