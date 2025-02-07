@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +36,10 @@ Route::get('/package', [PackageController::class, 'getPackById']);
 Route::delete('/package', [PackageController::class, 'deletePackById']);
 // Update package route
 Route::put('/package/update', [PackageController::class, 'updatePack']);
+
+// Create hotel route
+Route::post('/hotel/create', [HotelController::class, 'create']);
+Route::get('/hotels', [HotelController::class, 'getAll']);
+Route::get('/hotel/{hotel_id}', [HotelController::class, 'getById']);
+Route::delete('/hotel/{hotel_id}', [HotelController::class, 'deleteById']);
 
