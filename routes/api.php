@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\FlightController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,18 +24,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Create user route
 Route::post('/user/create', [AuthController::class, 'createUser']);
-// Get all users route
 Route::get('/users', [AuthController::class, 'getAllUsers']);
 
 // Create package route
 Route::post('/package/create', [PackageController::class, 'createPack']);
-// Get all packages route
 Route::get('/packages', [PackageController::class, 'getAllPack']);
-// Get package by ID route
 Route::get('/package', [PackageController::class, 'getPackById']);
-// Delete package by ID route
 Route::delete('/package', [PackageController::class, 'deletePackById']);
-// Update package route
 Route::put('/package/update', [PackageController::class, 'updatePack']);
 
 // Create hotel route
@@ -42,4 +38,11 @@ Route::post('/hotel/create', [HotelController::class, 'create']);
 Route::get('/hotels', [HotelController::class, 'getAll']);
 Route::get('/hotel/{hotel_id}', [HotelController::class, 'getById']);
 Route::delete('/hotel/{hotel_id}', [HotelController::class, 'deleteById']);
+
+// Create flight route
+Route::post('flight/create', [FlightController::class, 'createFlight']);
+Route::get('flights', [FlightController::class, 'getAllFlights']);
+Route::get('flight', [FlightController::class, 'getFlightById']);
+Route::delete('flight', [FlightController::class, 'deleteFlightById']);
+
 
