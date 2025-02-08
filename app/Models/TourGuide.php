@@ -1,23 +1,22 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Flight extends Model
+class TourGuide extends Model
 {
     use HasFactory;
 
-    protected $table = 'flights';
+    protected $table = 'tour_guides';
+    
+    protected $primaryKey = 'guide_id';
 
-    protected $primaryKey = 'flight_id';
-
+    // Mass-assignable fields
     protected $fillable = [
-        'flight_number',
-        'seat_class',
-        'departure_time',
-        'arrival_time',
+        'name',
+        'location',
+        'rating',
         'price',
     ];
 }

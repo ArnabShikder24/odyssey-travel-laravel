@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\TourGuideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +46,9 @@ Route::get('flights', [FlightController::class, 'getAllFlights']);
 Route::get('flight', [FlightController::class, 'getFlightById']);
 Route::delete('flight', [FlightController::class, 'deleteFlightById']);
 
+// Create tour guide route
+Route::post('/tour-guide/create', [TourGuideController::class, 'createTourGuide']);
+Route::get('/tour-guide/all', [TourGuideController::class, 'getAllTourGuides']);
+Route::get('/tour-guide/{guide_id}', [TourGuideController::class, 'getTourGuideById']);
+Route::delete('/tour-guide/{guide_id}', [TourGuideController::class, 'deleteTourGuideById']);
 
