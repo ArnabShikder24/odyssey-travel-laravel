@@ -26,6 +26,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Create user route
 Route::post('/user/create', [AuthController::class, 'createUser']);
 Route::get('/users', [AuthController::class, 'getAllUsers']);
+Route::post('/getUserByEmail', [AuthController::class, 'getUserByEmail']);
+Route::post('/auth/{id}/assign-role', [AuthController::class, 'assignRole']);
 
 // Create package route
 Route::post('/package/create', [PackageController::class, 'createPack']);
