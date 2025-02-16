@@ -54,6 +54,26 @@ class AuthController extends Controller
         }
     }
 
+    public function getUserByEmail(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+
+        $user = Auth::where('email', $request->email)->with('role')->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json([
+            'id' => $user->id,
+            'username' => $user->username,
+            'email' => $user->email,
+            'role' => $user->role ? $user->role->name : null, // Assuming 'name' is a column in the 'roles' table
+        ], 200);
+    }
+
+
+
     /**
      * Assign a role to a user.
      */

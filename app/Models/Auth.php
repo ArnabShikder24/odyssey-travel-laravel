@@ -13,6 +13,8 @@ class Auth extends Model
 
     protected $fillable = ['username', 'email', 'role_id'];
 
+    public $timestamps = false;
+
     public function role()
     {
         return $this->belongsTo(Role::class);
