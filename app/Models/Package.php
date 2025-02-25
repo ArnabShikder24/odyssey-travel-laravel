@@ -22,5 +22,10 @@ class Package extends Model
     {
         return $this->hasMany(Hotel::class, 'package_id', 'package_id');
     }
+
+    public function flights()
+    {
+        return $this->hasMany(Flight::class, 'package_id', 'package_id');
+    }
 }
 

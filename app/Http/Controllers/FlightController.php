@@ -16,6 +16,7 @@ class FlightController extends Controller
             'departure_time' => 'required|date',
             'arrival_time' => 'required|date',
             'price' => 'required|numeric',
+            'package_id' => 'nullable|exists:packages,package_id'
         ]);
 
         $flight = new Flight();
@@ -24,6 +25,7 @@ class FlightController extends Controller
         $flight->departure_time = $request->departure_time;
         $flight->arrival_time = $request->arrival_time;
         $flight->price = $request->price;
+        $flight->package_id = $request->package_id;
         $flight->save();
 
         return response()->json(['message' => 'Flight created successfully'], 201);

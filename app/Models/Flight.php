@@ -19,5 +19,11 @@ class Flight extends Model
         'departure_time',
         'arrival_time',
         'price',
+        'package_id',
     ];
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class, 'package_id', 'package_id');
+    }
 }
