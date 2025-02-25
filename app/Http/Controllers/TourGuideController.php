@@ -15,6 +15,7 @@ class TourGuideController extends Controller
             'location' => 'required|string|max:255',
             'rating' => 'required|numeric|min:0|max:5',
             'price' => 'required|numeric',
+            'package_id' => 'nullable|exists:packages,package_id'
         ]);
 
         $tourGuide = TourGuide::create($request->all());

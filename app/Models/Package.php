@@ -27,5 +27,10 @@ class Package extends Model
     {
         return $this->hasMany(Flight::class, 'package_id', 'package_id');
     }
+
+    public function tourGuides()
+    {
+        return $this->hasMany(TourGuide::class, 'package_id', 'package_id');
+    }
 }
 
