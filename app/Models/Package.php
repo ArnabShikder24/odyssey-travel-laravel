@@ -17,5 +17,10 @@ class Package extends Model
         'price',
         'img_url',
     ];
+
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class, 'package_id', 'package_id');
+    }
 }
 
