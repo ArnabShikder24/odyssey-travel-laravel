@@ -39,6 +39,7 @@ Route::put('/package/update', [PackageController::class, 'updatePack']);
 // Create hotel route
 Route::post('/hotel/create', [HotelController::class, 'create']);
 Route::get('/hotels', [HotelController::class, 'getAll']);
+Route::get('/hotels/package/{package_id}', [HotelController::class, 'getHotelsByPackage']);
 Route::get('/hotel/{hotel_id}', [HotelController::class, 'getById']);
 Route::delete('/hotel/{hotel_id}', [HotelController::class, 'deleteById']);
 

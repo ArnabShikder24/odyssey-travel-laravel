@@ -42,6 +42,20 @@ class HotelController extends Controller
         ]);
     }
 
+     // Get Hotels by package ID
+    public function getHotelsByPackage($package_id)
+    {
+        $hotels = Hotel::where('package_id', $package_id)->get();
+
+        if ($hotels->isEmpty()) {
+            return response()->json([
+                'message' => 'No hotels found for this package'
+            ], 404);
+        }
+
+        return response()->json($hotels, 200);
+    }
+
     // Get a hotel by ID
     public function getById($hotel_id)
     {
