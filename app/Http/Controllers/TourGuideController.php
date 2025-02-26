@@ -30,6 +30,20 @@ class TourGuideController extends Controller
         return response()->json($tourGuides, 200);
     }
 
+     // Get TourGuide by package ID
+    public function getTourGuideByPackage($package_id)
+    {
+        $tourGuides = TourGuide::where('package_id', $package_id)->get();
+
+        if ($tourGuides->isEmpty()) {
+            return response()->json([
+                'message' => 'No tourGuides found for this package'
+            ], 404);
+        }
+
+        return response()->json($tourGuides, 200);
+    }
+
     // Get Tour Guide by ID
     public function getTourGuideById($guide_id)
     {

@@ -53,6 +53,7 @@ Route::delete('flight', [FlightController::class, 'deleteFlightById']);
 // Create tour guide route
 Route::post('/tour-guide/create', [TourGuideController::class, 'createTourGuide']);
 Route::get('/tour-guide/all', [TourGuideController::class, 'getAllTourGuides']);
+Route::get('/tour-guide/package/{package_id}', [TourGuideController::class, 'getTourGuideByPackage']);
 Route::get('/tour-guide/{guide_id}', [TourGuideController::class, 'getTourGuideById']);
 Route::delete('/tour-guide/{guide_id}', [TourGuideController::class, 'deleteTourGuideById']);
 
