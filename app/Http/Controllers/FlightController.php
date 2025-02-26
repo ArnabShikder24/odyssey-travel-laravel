@@ -38,6 +38,20 @@ class FlightController extends Controller
         return response()->json($flights, 200);
     }
 
+    // Get flights by package ID
+    public function getFlightsByPackage($package_id)
+    {
+        $flights = Flight::where('package_id', $package_id)->get();
+
+        if ($flights->isEmpty()) {
+            return response()->json([
+                'message' => 'No flights found for this package'
+            ], 404);
+        }
+
+        return response()->json($flights, 200);
+    }
+
     // Get flight by ID
     public function getFlightById(Request $request)
     {

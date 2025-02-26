@@ -45,6 +45,7 @@ Route::delete('/hotel/{hotel_id}', [HotelController::class, 'deleteById']);
 // Create flight route
 Route::post('flight/create', [FlightController::class, 'createFlight']);
 Route::get('flights', [FlightController::class, 'getAllFlights']);
+Route::get('/flights/package/{package_id}', [FlightController::class, 'getFlightsByPackage']);
 Route::get('flight', [FlightController::class, 'getFlightById']);
 Route::delete('flight', [FlightController::class, 'deleteFlightById']);
 
