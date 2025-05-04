@@ -7,6 +7,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\TourGuideController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,4 +57,10 @@ Route::get('/tour-guide/all', [TourGuideController::class, 'getAllTourGuides']);
 Route::get('/tour-guide/package/{package_id}', [TourGuideController::class, 'getTourGuideByPackage']);
 Route::get('/tour-guide/{guide_id}', [TourGuideController::class, 'getTourGuideById']);
 Route::delete('/tour-guide/{guide_id}', [TourGuideController::class, 'deleteTourGuideById']);
+
+// Create booking route
+Route::post('/booking/create', [BookingController::class, 'createBooking']);
+Route::get('/bookings', [BookingController::class, 'getAllBookings']);
+Route::get('/bookings/email/{email}', [BookingController::class, 'getBookingsByEmail']);
+
 
