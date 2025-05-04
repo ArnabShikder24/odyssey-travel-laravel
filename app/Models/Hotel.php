@@ -22,9 +22,15 @@ class Hotel extends Model
         'location',
         'price_per_night',
         'rating',
+        'package_id'
     ];
 
     // Optionally, you can define hidden attributes (e.g., for sensitive data)
     // protected $hidden = ['password'];
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class, 'package_id', 'package_id');
+    }
 }
 

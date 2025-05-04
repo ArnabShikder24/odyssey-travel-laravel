@@ -15,6 +15,7 @@ class HotelController extends Controller
             'location' => 'required|string',
             'price_per_night' => 'required|numeric',
             'rating' => 'required|numeric|min:0|max:5',
+            'package_id' => 'nullable|exists:packages,package_id'
         ]);
 
         $hotel = new Hotel();
@@ -22,6 +23,7 @@ class HotelController extends Controller
         $hotel->location = $request->location;
         $hotel->price_per_night = $request->price_per_night;
         $hotel->rating = $request->rating;
+        $hotel->package_id = $request->package_id;
         $hotel->save();
 
         return response()->json([
@@ -38,6 +40,20 @@ class HotelController extends Controller
         return response()->json([
             'hotels' => $hotels
         ]);
+    }
+
+     // Get Hotels by package ID
+    public function getHotelsByPackage($package_id)
+    {
+        $hotels = Hotel::where('package_id', $package_id)->get();
+
+        if ($hotels->isEmpty()) {
+            return response()->json([
+                'message' => 'No hotels found for this package'
+            ], 404);
+        }
+
+        return response()->json($hotels, 200);
     }
 
     // Get a hotel by ID

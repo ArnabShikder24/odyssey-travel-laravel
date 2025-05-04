@@ -18,5 +18,11 @@ class TourGuide extends Model
         'location',
         'rating',
         'price',
+        'package_id'
     ];
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class, 'package_id', 'package_id');
+    }
 }

@@ -17,5 +17,24 @@ class Package extends Model
         'price',
         'img_url',
     ];
+
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class, 'package_id', 'package_id');
+    }
+
+    public function flights()
+    {
+        return $this->hasMany(Flight::class, 'package_id', 'package_id');
+    }
+
+    public function tourGuides()
+    {
+        return $this->hasMany(TourGuide::class, 'package_id', 'package_id');
+    }
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'package_id', 'package_id');
+    }
 }
 

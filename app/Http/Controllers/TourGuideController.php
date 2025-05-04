@@ -15,6 +15,7 @@ class TourGuideController extends Controller
             'location' => 'required|string|max:255',
             'rating' => 'required|numeric|min:0|max:5',
             'price' => 'required|numeric',
+            'package_id' => 'nullable|exists:packages,package_id'
         ]);
 
         $tourGuide = TourGuide::create($request->all());
@@ -26,6 +27,20 @@ class TourGuideController extends Controller
     public function getAllTourGuides()
     {
         $tourGuides = TourGuide::all();
+        return response()->json($tourGuides, 200);
+    }
+
+     // Get TourGuide by package ID
+    public function getTourGuideByPackage($package_id)
+    {
+        $tourGuides = TourGuide::where('package_id', $package_id)->get();
+
+        if ($tourGuides->isEmpty()) {
+            return response()->json([
+                'message' => 'No tourGuides found for this package'
+            ], 404);
+        }
+
         return response()->json($tourGuides, 200);
     }
 
